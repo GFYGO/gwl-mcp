@@ -90,8 +90,8 @@ def main(argv: list[str] | None = None) -> int:
     if config_http.http_auth_token is None:
         print("[gwl-mcp] 警告：未设置 GWL_HTTP_AUTH_TOKEN，MCP 端点只靠绑定地址 %s 保护。"
               % config_http.http_host, file=sys.stderr)
-    listen = "%s:%d%s" % (config_http.http_host, config_http.http_port, config_http.http_path)
-    print("[gwl-mcp] %s 传输监听 http://%s（Ctrl+C 退出）" % (args.transport, listen), file=sys.stderr)
+    print("[gwl-mcp] %s 传输监听 http://%s（Ctrl+C 退出）" % (args.transport, _listen_hint(args.transport, config_http)),
+          file=sys.stderr)
 
     import uvicorn
 
@@ -101,6 +101,18 @@ def main(argv: list[str] | None = None) -> int:
     except (KeyboardInterrupt):
         return 0
     return 0
+
+
+def _listen_hint(transport: str, config: Config) -> str:
+    """按传输打印真实可连地址：sse 的路径是固定的 /sse，不受 GWL_HTTP_PATH 影响。"""
+    port = config.http_port
+    if transport == "sse":
+        tail = "/sse（消息端点 POST /messages/）"
+    else:
+        tail = config.http_path
+    if port == 0:
+        return "%s:<系统分配端口>%s" % (config.http_host, tail)
+    return "%s:%d%s" % (config.http_host, port, tail)
 
 
 def _with_overrides(config: Config, *, host: str, port: int, path: str) -> Config:
