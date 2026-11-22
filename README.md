@@ -309,6 +309,28 @@ stdio 模式下 stdout 只有协议帧。工具调用会记一行 INFO（工具�
 | 14 | 无令牌 / 错令牌访问 /mcp | http | 均 401（JSON-RPC -32001 + WWW-Authenticate） |
 | 15 | tools/list、tools/call gwl_get_me、resources/read | http | 36 工具；调用落到 GET /api/v1/me；资源 JSON 正常 |
 | 16 | tools/list、tools/call gwl_get_permissions | sse | 36 工具；调用落到 GET /api/v1/permissions；无令牌 401 |
+| 17 | **真实 MCP Client 接入**（DeepSeek Harness 的 MCP 连接器） | stdio | 导入即连接成功，Host 侧注册 **36 个工具**（健康检查 healthy），客户端读到的 gwl_ping schema 与 tools/list 一致 |
+
+
+### 用真实 MCP Client 复现第 17 行
+
+DSH / Claude Desktop / Cursor 这类客户端只要能吃 stdio 配置即可，例如通用 JSON（路径与凭据换成本机的）：
+
+```json
+{
+  "mcpServers": {
+    "gwl-mcp-v1": {
+      "command": "D:/path/to/mcp-server/v1/.venv/Scripts/python.exe",
+      "args": ["D:/path/to/mcp-server/v1/run.py", "--transport", "stdio"],
+      "cwd": "D:/path/to/mcp-server/v1",
+      "env": { "GWL_USER_ID": "12", "GWL_API_KEY": "gk_你的key", "GWL_LOG_LEVEL": "ERROR" }
+    }
+  }
+}
+```
+
+连上之后先确认工具发现是 36 个，再调 `gwl_ping`（回报身份 + 限流口径）；
+401 是凭据问题，403 是权限问题（提示里会写清该去哪个页面看）。
 
 ## 11. 安全
 
