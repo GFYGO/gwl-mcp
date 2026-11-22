@@ -1,0 +1,21 @@
+{
+  "_readme": "Cline（VS Code 扩展）：设置 → MCP Servers → Edit Global Config，文件位于 ~/Documents/MCP 或 .cline/mcp_settings.json（视版本）。",
+  "mcpServers": {
+    "gwl": {
+      "command": "<PYTHON_EXE>",
+      "args": [
+        "<V1_DIR>/run.py",
+        "--transport",
+        "stdio"
+      ],
+      "cwd": "<V1_DIR>",
+      "env": {
+        "GWL_USER_ID": "<GWL_USER_ID>",
+        "GWL_API_KEY": "<GWL_API_KEY>",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "alwaysAllow": [],
+      "disabled": false
+    }
+  }
+}

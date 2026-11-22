@@ -1,0 +1,15 @@
+{
+  "_readme": "只支持 stdio、又想连远端 HTTP 端点时，用官方 Node 桥 mcp-remote（node 18+）。",
+  "mcpServers": {
+    "gwl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://127.0.0.1:8765/mcp",
+        "--header",
+        "Authorization: Bearer <GWL_HTTP_AUTH_TOKEN>"
+      ]
+    }
+  }
+}

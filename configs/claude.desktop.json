@@ -1,0 +1,18 @@
+{
+  "_readme": "Claude Desktop：把 mcpServers.gwl 这一段合并进 claude_desktop_config.json（设置 → 开发者 → 编辑配置文件）。Windows 路径里的反斜杠要写成双反斜杠，或用正斜杠。",
+  "mcpServers": {
+    "gwl": {
+      "command": "<PYTHON_EXE>",
+      "args": [
+        "<V1_DIR>/run.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "GWL_USER_ID": "<GWL_USER_ID>",
+        "GWL_API_KEY": "<GWL_API_KEY>",
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

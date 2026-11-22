@@ -1,0 +1,12 @@
+{
+  "_readme": "任何支持 Streamable HTTP 的客户端（Cherry Studio / LM Studio / 自研 Agent）通用形状。",
+  "mcpServers": {
+    "gwl": {
+      "type": "streamable-http",
+      "url": "http://127.0.0.1:8765/mcp",
+      "headers": {
+        "Authorization": "Bearer <GWL_HTTP_AUTH_TOKEN>"
+      }
+    }
+  }
+}

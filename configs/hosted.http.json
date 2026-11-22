@@ -1,0 +1,13 @@
+{
+  "_readme": "免部署：直接用线上托管端点 https://back.gwl.net.cn/mcp（site-back/routes/mcp.py，同一批 36 工具）。这里不是本机 v1 服务，鉴权方式换成 GWL 的 userid + apikey 头。",
+  "mcpServers": {
+    "gwl": {
+      "type": "http",
+      "url": "https://back.gwl.net.cn/mcp",
+      "headers": {
+        "X-User-Id": "<GWL_USER_ID>",
+        "X-Api-Key": "<GWL_API_KEY>"
+      }
+    }
+  }
+}

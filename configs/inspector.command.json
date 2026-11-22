@@ -1,0 +1,5 @@
+{
+  "_readme": "MCP Inspector 不是 mcpServers 形状：这是可直接粘贴的命令行（见 configs/README.md）。",
+  "stdio": "npx -y @modelcontextprotocol/inspector <PYTHON_EXE> <V1_DIR>/run.py --transport stdio",
+  "http": "npx -y @modelcontextprotocol/inspector --cli --transport http --method tools/list http://127.0.0.1:8765/mcp"
+}

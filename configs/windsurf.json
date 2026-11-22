@@ -1,0 +1,18 @@
+{
+  "_readme": "Windsurf：~/.codeium/windsurf/mcp_config.json。",
+  "mcpServers": {
+    "gwl": {
+      "command": "<PYTHON_EXE>",
+      "args": [
+        "<V1_DIR>/run.py",
+        "--transport",
+        "stdio"
+      ],
+      "cwd": "<V1_DIR>",
+      "env": {
+        "GWL_USER_ID": "<GWL_USER_ID>",
+        "GWL_API_KEY": "<GWL_API_KEY>"
+      }
+    }
+  }
+}

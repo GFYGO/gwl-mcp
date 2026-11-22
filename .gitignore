@@ -221,3 +221,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---- gwl-mcp 项目专属 ----
+# 真实凭据：绝不入库
+.env
+.env.local
+.env.*.local
+!.env.example
+# gen_configs.py 的渲染产物（含本机路径与填好的 key）
+configs/generated/
+configs/*.local.json
+# 测试与运行垃圾
+.pytest_cache/
+*.egg-info/

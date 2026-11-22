@@ -1,0 +1,18 @@
+{
+  "_readme": "Claude Code：项目根目录 .mcp.json（团队共享）；或命令行 claude mcp add gwl --transport stdio -- <PYTHON_EXE> <V1_DIR>/run.py --transport stdio。",
+  "mcpServers": {
+    "gwl": {
+      "type": "stdio",
+      "command": "<PYTHON_EXE>",
+      "args": [
+        "<V1_DIR>/run.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "GWL_USER_ID": "<GWL_USER_ID>",
+        "GWL_API_KEY": "<GWL_API_KEY>"
+      }
+    }
+  }
+}

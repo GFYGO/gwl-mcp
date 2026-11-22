@@ -1,0 +1,27 @@
+{
+  "_readme": "Continue：~/.continue/config.json 的 mcpServers 数组（新版也支持 .continue/mcp.json）。",
+  "mcpServers": [
+    {
+      "name": "GWL",
+      "id": "local-mcp-gwl",
+      "command": "<PYTHON_EXE>",
+      "args": [
+        "<V1_DIR>/run.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "GWL_USER_ID": "<GWL_USER_ID>",
+        "GWL_API_KEY": "<GWL_API_KEY>"
+      }
+    },
+    {
+      "name": "GWL (HTTP)",
+      "id": "remote-mcp-gwl",
+      "url": "http://127.0.0.1:8765/mcp",
+      "headers": {
+        "Authorization": "Bearer <GWL_HTTP_AUTH_TOKEN>"
+      }
+    }
+  ]
+}
